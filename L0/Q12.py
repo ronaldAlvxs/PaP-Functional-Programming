@@ -1,25 +1,18 @@
 from utils import head, tail, init, last
+from Q11 import ehPrimo # True se sim, False caso contrario
 
-def aux_primo(n, m):
-    if m == 1:
-        return True
+def primeiros_n_primos_a_partir_de_candidato(candidato, n):
+    if n <= 0:
+        return []
 
-    if n%m == 0:
-        return False
-    else:
-        return aux_primo(n, m-1)
+    if ehPrimo(candidato):
+        return [candidato] + primeiros_n_primos_a_partir_de_candidato(candidato+1, n-1)
 
-def ehPrimo(n: int):
-    return aux_primo(n, n-1)
+    if not ehPrimo(candidato):
+        return primeiros_n_primos_a_partir_de_candidato(candidato+1, n)
 
-def n_primeiros_primos(n, start):
-    if n == 0:
-        return
-
-    if ehPrimo(start):
-        print(start)
-
-    
+def primeiros_n_primos(n):
+    return primeiros_n_primos_a_partir_de_candidato(1, n)
         
 if __name__=="__main__":
-    print(ehPrimo(18))
+    print(primeiros_n_primos(10))

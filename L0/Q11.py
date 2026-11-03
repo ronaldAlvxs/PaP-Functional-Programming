@@ -1,6 +1,9 @@
 from utils import head, tail, init, last
 
 def aux(n, m):
+    if n == 1:
+        return True
+
     if m == 1:
         return True
 
