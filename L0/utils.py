@@ -8,7 +8,7 @@ def tail(lista):
 
 # Retorna a lista sem o ultimo elemento
 def init(lista):
-    return lista[:-1]
+    return lista[:-1]*x
 
 # Retorna último elemento da lista
 def last(lista):
@@ -62,3 +62,20 @@ def soma(lista):
 
 def soma2(lista):
     return functools.reduce(lambda acc, x: acc+x, lista, 0)
+
+
+# list comprehension exemplos
+
+s = [x for x in range(0,11)]
+
+pares = [x for x in s if x % 2 == 0] # Diferente de s?
+
+impares = [x for x in s if not x % 2 == 0] # Qual o conteúdo?
+
+pares_ou_zeros = [0 if x % 2 == 0 else x for x in s] # O q faz?
+
+quadrados = [x*x for x in range(5)] # [0, 1, 4, 9, 16]
+
+res = [n for n in range(100) if n % 5 == 0 if n % 6 == 0]
+
+res = [n for n in range(100) if n % 5 == 0 and n % 6 == 0] #equivalente
